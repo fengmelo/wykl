@@ -1,2 +1,3 @@
 # wykl
-vue+Element UI+Koa
+cnpm install
+yarn serve
