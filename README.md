@@ -1,3 +1,4 @@
 # wykl
 cnpm install
-yarn serve
+
+yarn  serve
