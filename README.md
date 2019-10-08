@@ -2,10 +2,10 @@
 
 Vue模仿网易考拉前台
 
-#技术栈
+# 技术栈
 vue2+vue-router+vuex+axios+better-scroll
 
-#功能
+# 功能
 better-scroll页面滚动
 better-scroll三级联动
 better-scroll上拉加载
@@ -13,13 +13,13 @@ better-scroll上拉加载
 过渡动画
 
 
-#业务功能
+# 业务功能
 多级联动
 登录
 搜索
 购物车
 
-#页面
+# 页面
 首页
 搜索列表页
 详情页
@@ -28,6 +28,8 @@ better-scroll上拉加载
 地址管理
 登录页
 
+
+# 运行
 cnpm install
 
 yarn  serve
