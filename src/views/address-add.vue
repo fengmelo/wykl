@@ -53,7 +53,6 @@ export default {
   },
   computed: {
 		regionsText(){
-			console.log('this.form.regions=',this.form.regions)
 			return  (this.form.regions&&this.form.regions.length)?this.form.regions.reduce((text, region) => {
           return text + region.name;
         }, ''):'所在地区'
