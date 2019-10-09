@@ -6,8 +6,9 @@ Vue模仿网易考拉前台
 vue2+vue-router+vuex+axios+better-scroll
 
 ### 功能
+* 吸顶效果重排性能优化
 * better-scroll页面滚动
-* etter-scroll三级联动
+* better-scroll三级联动
 * better-scroll上拉加载
 * 图片懒加载
 * 过渡动画

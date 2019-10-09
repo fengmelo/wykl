@@ -5,6 +5,7 @@ import {
 	fetchList
 } from "@/api/config";
 import BigNumber from 'bignumber.js'
+import { isiOS } from "@/common/js/util";
 
 Vue.use(Vuex)
 
@@ -23,7 +24,10 @@ export default new Vuex.Store({
 		currentUser: window.localStorage.getItem('fuser') ? JSON.parse(window.localStorage.getItem('fuser')) : {},
 		cart: [], //购物车
 		query: '', //搜索页  搜索关键词
-		tagOptions: []
+		tagOptions: [],
+		app:{
+			isiOS:isiOS()
+		}
 	},
 	getters: {
 		currentUser: state => state.currentUser,
@@ -41,7 +45,8 @@ export default new Vuex.Store({
 		},
 		tagOptions(state) {
 			return state.tagOptions.length ? state.tagOptions : []
-		}
+		},
+		app:state=> state.app
 	},
 	mutations: {
 		/*

@@ -1,3 +1,5 @@
+import {  throttle } from "@/common/js/util";
+
 export const sliderBarMixin= {
 	data(){
 		return {
@@ -7,7 +9,9 @@ export const sliderBarMixin= {
   mounted() {
     this.$refs.pageScroll.addEventListener(
       "scroll",
-		  this.listenerScroll,
+		  throttle(()=>{
+				this.listenerScroll()
+			},50),
       false
 		);
   },

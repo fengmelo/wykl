@@ -39,7 +39,6 @@ import SliderBar from "@/components/common/sliderbar.vue";
 import Loading from "@/components/common/loading.vue";
 
 import { sliderBarMixin } from "@/common/js/mixin";
-
 import { fetchList } from "@/api/config";
 import { fetchProductList } from "@/api/product";
 
@@ -51,6 +50,7 @@ export default {
   mixins: [sliderBarMixin],
   data() {
     return {
+      isiOS: false,
       sliderImages: [
         "https://haitao.nosdn2.127.net/a8d6ae70-f57b-4064-badf-9bc2da144365T1904091436_960_480.jpg?imageView&thumbnail=750x375&quality=60&type=webp",
         "https://haitao.nos.netease.com/5e57a9d6-2cf5-42a8-90a3-ea3ea22edf82T1907311606_960_480.jpg?imageView&thumbnail=750x375&quality=60&type=webp"
@@ -361,17 +361,17 @@ export default {
           ]
         }
       ],
-			cartPos: {},
-			cartTransitionEnd:false,
-			newCartCount:0
+      cartPos: {},
+      cartTransitionEnd: false,
+      newCartCount: 0
     };
   },
   created() {
     //默认只加载第一屏tab
     this.getActivities().then(() => {
       this.getProductByPlaneId(1);
-		});
-		this.newCartCount=this.cartTotalCount
+    });
+    this.newCartCount = this.cartTotalCount;
   },
   mounted() {
     const {
@@ -386,18 +386,18 @@ export default {
     };
   },
   computed: {
-		...mapGetters(["cartTotalCount"]),
+    ...mapGetters(["cartTotalCount"]),
     activitiesWithPlanes() {
       return this.activities.slice(2);
     }
-	},
+  },
   methods: {
-		setCartTransitionEndState(state){
-			this.cartTransitionEnd=state
-			if(state===true){
-				this.newCartCount=this.cartTotalCount
-			}
-		},
+    setCartTransitionEndState(state) {
+      this.cartTransitionEnd = state;
+      if (state === true) {
+        this.newCartCount = this.cartTotalCount;
+      }
+    },
     //加载 计算 top值
     getScrollTop() {
       this.$nextTick(() => {
@@ -464,6 +464,7 @@ export default {
       }
       this.$refs.tab.activitiesIndex = index;
       this.tabMove(index);
+      this.$refs.tab.doLstenerTab && this.$refs.tab.listenerTab();
     },
     //tab条的横向滚动
     tabMove(index) {
@@ -495,10 +496,10 @@ export default {
         ref = this.$refs[`tab${index}`][0];
       }
       return ref.$el.offsetTop;
-		},
-		goToCart(){
-			this.cartTotalCount && this.$router.push({name:'cart'})
-		}
+    },
+    goToCart() {
+      this.cartTotalCount && this.$router.push({ name: "cart" });
+    }
   },
   components: {
     Ad,
